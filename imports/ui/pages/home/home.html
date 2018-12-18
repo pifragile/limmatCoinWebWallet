@@ -1,0 +1,6 @@
+<template name="App_home">
+    {{#unless web3ActiveInBrowser}}
+        {{> loginButtons}}
+    {{/unless}}
+    {{> limmatCoin}}
+</template>

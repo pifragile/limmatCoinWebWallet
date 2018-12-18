@@ -1,0 +1,21 @@
+{
+  "public": {
+    "contracts": {
+      "lmc": {
+        "address": "0x07730682e3515c05da20e58e2144bddc22b4f642",
+        "signatureHashes": {
+          "transferWithMessage": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+        },
+        "decimals": 2
+      }
+    },
+    "networks": {
+      "devnet": {
+        "host": "localhost",
+        "port": "8501",
+        "chainId": 1516
+      }
+    },
+    "activeNetwork": "devnet"
+  }
+}

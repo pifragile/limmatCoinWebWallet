@@ -1,0 +1,15 @@
+pragma solidity ^0.4.17;
+
+import 'openzeppelin-solidity/contracts/token/ERC20/StandardToken.sol';
+
+contract LimmatCoin is StandardToken {
+    string public name = 'LimmatCoin';
+    string public symbol = 'LMC';
+    uint8 public decimals = 2;
+    uint public INITIAL_SUPPLY = 12000;
+
+    constructor() {
+      totalSupply = INITIAL_SUPPLY;
+      balances[msg.sender] = INITIAL_SUPPLY;
+    }
+}

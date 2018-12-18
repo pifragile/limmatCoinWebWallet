@@ -1,0 +1,81 @@
+<template name="limmatCoin">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Error: Name is already used in address book!
+    </div>
+    <div class="container">
+        <img class="logo" border="0" height="80" hspace="0" src="/images/ETHEREUM-LOGO_PORTRAIT_Black_small.png" />
+        <h1>Limmatcoin Wallet</h1>
+        <h5 class="green">{{address}}</h5>
+        <hr class="col-xs">
+        <h2>{{balance}} LMC</h2>
+        <hr class="col-xs">
+        <h4>New Transaction</h4>
+        <form class="send-asset">
+            <div class="form-group">
+                <input class="form-control" type="text" name="to_address" placeholder="To Address" id="toAddress" />
+                {{#if showValidationError}}
+                    {{#unless addressIsValid}}
+                        <span class="invalidAddress">Invalid Address</span>
+                    {{/unless}}
+                {{/if}}
+                {{#if showAddressBook}}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="green">Name</th>
+                            <th class="green">Address</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#each entry in addressBook}}
+                            <tr>
+                                <td><a id="selectAddressByName" href="">{{entry.name}}</a></td>
+                                <td><a id="selectAddressByAddress" href="">{{entry.address}}</a></td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                {{/if}}
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" name="amt" placeholder="Amount" required="required"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="msg" placeholder="Message"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Senden</button>
+            </div>
+        </form>
+        <hr class="col-xs">
+        <h4>Transaction List</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="green">Peer</th>
+                <th class="green">Amount</th>
+                <th class="green">Message</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each transactionList}}
+                {{> historyEntry}}
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<template name="historyEntry">
+    <tr>
+        <td>
+        {{#if peerName}}
+            <a tabindex="0" role="button" data-toggle="popover" id="peerName">{{peerName}}</a>
+        {{else}}
+            <a tabindex="0" role="button" data-toggle="popover" id="peerAddress">{{peer}}</a>
+        {{/if}}
+        </td>
+        <td>{{amount}}</td>
+        <td>{{message}}</td>
+    </tr>
+</template>

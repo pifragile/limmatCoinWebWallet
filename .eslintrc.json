@@ -1,0 +1,16 @@
+{
+    "plugins": ["meteor", "prettier"],
+    "extends": ["plugin:meteor/recommended","plugin:prettier/recommended"],
+    "rules": {
+        "max-len": [2, 80, 4],
+        "semi": [ 2, "never" ],
+        "space-in-parens": ["error", "never"],
+        "generator-star-spacing": "off",
+        "prettier/prettier": "error",
+        "array-bracket-spacing": ["error", "never"],
+        "eqeqeq": ["error", "always"]
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017
+    }
+}
